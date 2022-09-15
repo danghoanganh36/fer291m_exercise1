@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+*{
+  padding: 0;
+  margin: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navigation ul{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: start;
+  background-color: black;
+}
+.navigation li{
+  list-style: none;
+}
+.navigation a{
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: aliceblue;
+  font-size: larger;
+}
+.navigation a:hover{
+  background-color: rgb(176, 183, 192);
+}
+.active{
+  background-color: #c2b506;
+}
+
+.container {
+  width: 1320px;
+  margin: 0 auto;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+}
+
+.column {
+  text-align: center;
+  margin: 10px;
+  width: 30%;
+}
+
+.card{
+  background-color: silver;
+  width: 100%;
+  border: 3px solid #c2b506;
+}
+
+.card img{
+  width: 100%;
+}
+
+.card h2{
+  padding: 5px;
+}
+
+/* .card button{
+  width: 100%;
+  background-color: black;
   color: white;
+  padding: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.card button:hover{
+  background-color: rgb(176, 183, 192);
+  color: rgb(61, 61, 61);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+} */
+.glow-on-hover {
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  margin-top: 5px;
+  /* border-radius: 10px; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  /* border-radius: 10px; */
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  /* border-radius: 10px; */
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #c2b506;
+  color: white;
+  text-align: center;
 }
